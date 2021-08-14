@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #4d4f5c;
+}
+
+button {
+  font-size: 13px;
+  background-color: #fff;
+  border: 0;
+  outline: 0;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+button:not(:last-child) {
+  border-right: 1px solid #d7dae2;
+}
+
+button:hover {
+  color: #3b86ff;
+  transition: 200ms;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f7;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas,
+    'Courier New', monospace;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0px 2px 6px #0000000a;
+  border-radius: 3px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* .header .title {
+  margin-right: auto;
+} */
+
+.controls {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons-form {
+  display: flex;
+
+  margin-right: auto;
+  border: 1px solid #d7dae2;
+  border-radius: 4px;
+}
+
+.buttons-form.header-buttons {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.controls .title {
+  margin-right: auto;
+}
+
+.calendar-wrap {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  /* grid-template-rows: repeat(6, 1fr); */
+}
+
+.calendar-cell {
+  width: 140px;
+  height: 80px;
+  border: 1px solid #eaf0f4;
+  position: relative;
+}
+
+.calendar-cell.header-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  color: #a3a6b4;
+
+  height: 45px;
+
+  border-top: 0;
+  border-bottom: 0;
+  background-color: #f5f6fa;
+
+  pointer-events: none;
+}
+
+.calendar-cell .row {
+  display: flex;
+}
+
+.calendar-cell:hover {
+  transition: 350ms;
+  border-color: #3b86ff;
+}
+
+.calendar-cell .date {
+  height: 33px;
+  width: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+}
+.calendar-cell .date.opacity {
+  opacity: 0.3;
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 18px;
+}
+
+.current-day {
+  color: #fff;
+  background-color: #3b86ff;
+  border-radius: 50%;
+}
