@@ -1,5 +1,6 @@
 {
   "name": "calendar",
+  "homepage": "https://github.com/sBeznosiuk/calendar"
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -32,7 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "netlify deploy -p",
+    "deploy": "gh-pages -d build",
     "server": "json-server --watch db.json --port 4040 --delay 200"
   },
   "eslintConfig": {
