@@ -1,8 +1,7 @@
 {
   "name": "calendar",
-  "homepage": "https://github.com/sBeznosiuk/calendar"
+  "homepage": "https://github.com/sBeznosiuk/calendar",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.0",
     "@testing-library/jest-dom": "^5.12.0",
@@ -55,7 +54,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.1.0",
+    "gh-pages": "^3.2.3",
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
