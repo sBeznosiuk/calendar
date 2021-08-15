@@ -4,6 +4,8 @@ import Controls from './Components/Controls';
 import CalendarWrap from './Components/CalendarWrap';
 import React, { useState } from 'react';
 import Modal from './Components/Modal';
+import { setCurrentTodo } from './redux/actions';
+import { useDispatch } from 'react-redux';
 
 function App() {
   moment.updateLocale('en', {
@@ -12,7 +14,9 @@ function App() {
 
   const [today, setToday] = useState(moment());
   const [isShown, setIsShown] = useState(false);
-  const [cursorPos, setCursorPos] = useState(0);
+  const [cursorPos, setCursorPos] = useState({});
+  const [chosenDate, setChosenDate] = useState('');
+  const dispatch = useDispatch();
 
   const firstDay = today
     .clone()
@@ -29,10 +33,33 @@ function App() {
   const prevMonthHandler = () =>
     setToday(today.clone().subtract(1, 'month'));
 
-  const handleOpenModal = e => {
-    setCursorPos(e.clientY);
+  const handleModalPosition = (e, todo) => {
+    e.preventDefault();
+    setCursorPos({
+      left: `${e.pageX - 100.5}px`,
+      top: `${e.pageY + 40}px`,
+    });
+    // if (e.currentTarget.id !== 'todo') {
+    //   dispatch(setCurrentTodo(1));
+    // } else {
+    //   dispatch(setCurrentTodo(todo));
+    // }
+
     setIsShown(true);
     console.log(cursorPos);
+  };
+
+  const handleOpenModal = (e, day) => {
+    setChosenDate(day.format('YYYY-MM-DD'));
+    if (e.target.id !== 'todo') {
+      handleModalPosition(e);
+
+      dispatch(setCurrentTodo(null));
+    }
+  };
+
+  const handleModalClose = () => {
+    setIsShown(false);
   };
 
   return (
@@ -48,8 +75,15 @@ function App() {
         firstDay={firstDay}
         selectedMonth={today}
         handleOpenModal={handleOpenModal}
+        handleModalPosition={handleModalPosition}
       />
-      {isShown && <Modal cursorPos={cursorPos} />}
+      {isShown && (
+        <Modal
+          cursorPos={cursorPos}
+          handleModalClose={handleModalClose}
+          chosenDate={chosenDate}
+        />
+      )}
     </div>
   );
 }
